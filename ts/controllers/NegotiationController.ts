@@ -6,6 +6,7 @@ class NegotiationController {
 
     private _negotiations = new Negotiations();
     private _negotiationView = new NegotiationView("#negociacoesView");
+    private _messageView = new MessageView("#mensagemView");
 
     constructor() {
         this.date = document.querySelector("#data");
@@ -25,7 +26,7 @@ class NegotiationController {
         );
 
         this._negotiations.add(negotiation);
-        
         this._negotiationView.update(this._negotiations);
+        this._messageView.update("Negociação adicionada com sucesso!")
     }
 }
