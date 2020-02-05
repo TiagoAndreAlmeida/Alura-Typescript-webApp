@@ -7,15 +7,18 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "tsc -w",
+    "watch": "tsc -w",
+    "start": "concurrently \"npm run watch\" \"npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc"
+    "compile": "tsc",
+    "server": "lite-server --baseDir=./"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jquery": "^3.3.31",
+    "lite-server": "^2.5.4",
     "typescript": "^3.7.5"
   }
 }
