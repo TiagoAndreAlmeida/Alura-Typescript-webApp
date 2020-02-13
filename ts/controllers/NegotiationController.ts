@@ -1,6 +1,16 @@
 import { Negotiations, Negotiation } from "../models/index";
 import { NegotiationView, MessageView } from "../views/index";
 
+enum DayWeek {
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
+}
+
 export class NegotiationController {
     
     private date: JQuery;
@@ -19,11 +29,18 @@ export class NegotiationController {
         this._negotiationView.update(this._negotiations)
     }
 
-    add(event: Event) {
+    add(event: Event): void {
         event.preventDefault();
 
+        let data = new Date(this.date.val()!.toString().replace(/-/g, ","));
+
+        if(data.getDay() == DayWeek.Sunday || data.getDay() == DayWeek.Saturday) {
+            this._messageView.update("Somente dias úteis!");
+            return;
+        }
+        
         const negotiation = new Negotiation(
-            new Date(this.date.val()!.toString().replace(/-/g, ",")),
+            data,
             parseInt(this.amount.val()!.toString()),
             parseFloat(this.value.val()!.toString())
         );
