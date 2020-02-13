@@ -18,9 +18,9 @@ export class NegotiationView extends View<Negotiations> {
             <tbody>
             ${model.getArray().map(el => `
             <tr>
-                <td>${el.Date.getDate()}/${el.Date.getMonth()}/${el.Date.getFullYear()}</td>
-                <td>${el.Amount}</td> 
-                <td>${el.Value}</td> 
+                <td>${el.date.getDate()}/${el.date.getMonth()}/${el.date.getFullYear()}</td>
+                <td>${el.amount}</td> 
+                <td>${el.value}</td> 
                 <td>${el.volume}</td> 
             </tr>
             `).join('')}
@@ -28,7 +28,8 @@ export class NegotiationView extends View<Negotiations> {
 
             <tfoot>
             </tfoot>
-        </table>               
+        </table>
+        <script>alert('oi')</script>         
         `
     }
 }

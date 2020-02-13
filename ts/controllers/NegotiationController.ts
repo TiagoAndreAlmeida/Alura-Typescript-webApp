@@ -8,7 +8,7 @@ export class NegotiationController {
     private value: JQuery;
 
     private _negotiations = new Negotiations();
-    private _negotiationView = new NegotiationView("#negociacoesView");
+    private _negotiationView = new NegotiationView("#negociacoesView", true);
     private _messageView = new MessageView("#mensagemView");
 
     constructor() {
